@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whatsapp_clone/resources/strings.dart';
+import 'package:whatsapp_clone/view/login_page.dart';
 import 'package:whatsapp_clone/view_model/register_bloc/register_bloc.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -66,7 +67,7 @@ class RegisterPage extends StatelessWidget {
                           context
                               .read<RegisterBloc>()
                               .add(PasswordEvent(value));
-                              print(state.password);
+                          print(state.password);
                         },
                       ),
 
@@ -113,11 +114,15 @@ class RegisterPage extends StatelessWidget {
                             Strings.alreadyHave,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
-                          SizedBox(
-                            width: 5.w,
-                          ),
+                          
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => LoginPage(),
+                                ),
+                              );
+                            },
                             child: Text(
                               Strings.loginNow,
                               style: Theme.of(context).textTheme.bodyLarge,

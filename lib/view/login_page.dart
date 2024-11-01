@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whatsapp_clone/resources/strings.dart';
+import 'package:whatsapp_clone/view/register_page.dart';
 import 'package:whatsapp_clone/view_model/login_bloc/login_bloc.dart';
 
 class LoginPage extends StatelessWidget {
@@ -88,11 +89,15 @@ class LoginPage extends StatelessWidget {
                             Strings.notMember,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
-                          SizedBox(
-                            width: 5.w,
-                          ),
+                          
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => RegisterPage(),
+                                ),
+                              );
+                            },
                             child: Text(
                               Strings.registerNow,
                               style: Theme.of(context).textTheme.bodyLarge,
