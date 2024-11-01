@@ -27,7 +27,10 @@ class AuthRepository {
           password: password,
         );
         if (UserCredential.user == null) {
-          print('ESSE USUARIO NÃO EXISTE');
+          print('USER NOT EXIST');
+        }
+        if (UserCredential.user != null) {
+          print('GOOD PATH');
         }
       } on FirebaseAuthException catch (e) {
         print(e.code);

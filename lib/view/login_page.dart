@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:whatsapp_clone/repository/auth_repository.dart';
 import 'package:whatsapp_clone/resources/strings.dart';
 import 'package:whatsapp_clone/view/register_page.dart';
 import 'package:whatsapp_clone/view_model/login_bloc/login_bloc.dart';
@@ -46,7 +47,6 @@ class LoginPage extends StatelessWidget {
                         },
                         onChanged: (value) {
                           context.read<LoginBloc>().add(EmailEvent(value));
-
                         },
                       ),
                       SizedBox(height: 10.h),
@@ -74,6 +74,7 @@ class LoginPage extends StatelessWidget {
                         child: OutlinedButton(
                           onPressed: () {
                             _formKey.currentState!.validate();
+                            AuthRepository(context).login();
                           },
                           child: Text(
                             Strings.login,
@@ -89,7 +90,6 @@ class LoginPage extends StatelessWidget {
                             Strings.notMember,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
-                          
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).push(
