@@ -1,6 +1,21 @@
 part of 'login_bloc.dart';
 
-@immutable
-sealed class LoginState {}
+class LoginState {
+  final String email;
+  final String password;
 
-final class LoginInitial extends LoginState {}
+  LoginState({
+    this.email = '',
+    this.password  = '',
+  });
+
+  LoginState copyWith({
+    String? email,
+    String? password,
+  }) {
+    return LoginState(
+      email: email ?? this.email,
+      password: password ?? this.password,
+    );
+  }
+}

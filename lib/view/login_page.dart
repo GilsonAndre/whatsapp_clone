@@ -39,6 +39,9 @@ class LoginPage extends StatelessWidget {
                       }
                       return null;
                     },
+                    onChanged: (value) {
+                      
+                    },
                   ),
                   SizedBox(height: 10.h),
 
@@ -61,11 +64,7 @@ class LoginPage extends StatelessWidget {
                     height: 50.h,
                     child: OutlinedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          print('VALID');
-                        } else {
-                          print('INVALID');
-                        }
+                        _formKey.currentState!.validate();
                       },
                       child: Text(
                         Strings.login,
