@@ -46,7 +46,6 @@ class RegisterPage extends StatelessWidget {
                         },
                         onChanged: (value) {
                           context.read<RegisterBloc>().add(EmailEvent(value));
-                          print(state.email);
                         },
                       ),
                       SizedBox(height: 10.h),
@@ -67,7 +66,6 @@ class RegisterPage extends StatelessWidget {
                           context
                               .read<RegisterBloc>()
                               .add(PasswordEvent(value));
-                          print(state.password);
                         },
                       ),
 
@@ -89,7 +87,6 @@ class RegisterPage extends StatelessWidget {
                           context
                               .read<RegisterBloc>()
                               .add(ConfirmPassordEvent(value));
-                          print(state.confirmPassword);
                         },
                       ),
                       SizedBox(height: 25.h),
@@ -114,7 +111,6 @@ class RegisterPage extends StatelessWidget {
                             Strings.alreadyHave,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
-                          
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).push(
