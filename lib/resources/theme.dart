@@ -1,30 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class ThemeApp {
   ThemeData themeLight = ThemeData(
-    colorScheme: ColorScheme.light(
-      primary: Colors.grey.shade500,
-      secondary: Colors.grey.shade200,
-      tertiary: Colors.white,
-      inversePrimary: Colors.grey.shade900,
-    ),
     scaffoldBackgroundColor: Colors.grey.shade300,
+
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(),
+    ),
+    //Login & register Button
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: ButtonStyle(
+        shape: WidgetStatePropertyAll(
+          ContinuousRectangleBorder(),
+        ),
+      ),
+    ),
+    iconTheme: IconThemeData(
+      size: 70,
+      color: Colors.grey,
+    ),
+    //title page
     textTheme: TextTheme(
+      titleSmall: TextStyle(
+        fontSize: 18
+      ),
       titleMedium: TextStyle(
         color: Colors.grey,
       ),
+      //registerNow
       bodyLarge: TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 18
+        fontSize: 18,
       ),
     ),
-    
-    iconTheme: IconThemeData(
-      size: 70.sp,
-      color: Colors.grey,
-    )
   );
   ThemeData themeDark = ThemeData();
 }
