@@ -1,6 +1,25 @@
 part of 'register_bloc.dart';
 
-@immutable
-sealed class RegisterState {}
+class RegisterState {
+  final String email;
+  final String password;
+  final String confirmPassword;
 
-final class RegisterInitial extends RegisterState {}
+  RegisterState({
+    this.email = '',
+    this.password = '',
+    this.confirmPassword = '',
+  });
+
+  RegisterState copyWith({
+    String? email,
+    String? password,
+    String? confirmPassword,
+  }) {
+    return RegisterState(
+      email: email ?? this.email,
+      password: password ?? this.password,
+      confirmPassword: confirmPassword ?? this.confirmPassword,
+    );
+  }
+}

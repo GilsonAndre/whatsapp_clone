@@ -91,9 +91,12 @@ class LoginPage extends StatelessWidget {
                           SizedBox(
                             width: 5.w,
                           ),
-                          Text(
-                            Strings.registerNow,
-                            style: Theme.of(context).textTheme.bodyLarge,
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              Strings.registerNow,
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
                           ),
                         ],
                       ),

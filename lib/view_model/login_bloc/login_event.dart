@@ -9,6 +9,7 @@ class EmailEvent extends LoginEvent {
 
   EmailEvent(this.email);
 }
+
 class PasswordEvent extends LoginEvent {
   final String password;
 
