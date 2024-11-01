@@ -16,7 +16,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     Emitter<LoginState> emit,
   ) async {
     emit(state.copyWith(email: event.email));
-    print('EMAIL ${state.password}');
   }
 
   FutureOr<void> _passwordEvent(
@@ -24,6 +23,5 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     Emitter<LoginState> emit,
   ) async {
     emit(state.copyWith(password: event.password));
-    print('PASSWORD ${state.password}');
   }
 }
