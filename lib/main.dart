@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whatsapp_clone/firebase_options.dart';
 import 'package:whatsapp_clone/resources/strings.dart';
 import 'package:whatsapp_clone/resources/theme.dart';
+import 'package:whatsapp_clone/view/auth_gate.dart';
 import 'package:whatsapp_clone/view/login_page.dart';
 import 'package:whatsapp_clone/view_model/login_bloc/login_bloc.dart';
 import 'package:whatsapp_clone/view_model/register_bloc/register_bloc.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: Strings.appName,
           theme: themeApp.themeLight,
-          home: LoginPage(),
+          home: AuthGate(),
         ),
       ),
     );

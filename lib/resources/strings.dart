@@ -1,5 +1,7 @@
+
 class Strings {
   static const appName = 'Whatsapp Clone';
+  static const homePage = 'Home';
   
   static const welcomeBack = 'Welcome back';
   static const creatAccount = 'Let\'s create an account';
