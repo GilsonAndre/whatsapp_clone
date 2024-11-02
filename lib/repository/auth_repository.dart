@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp_clone/components/toast.dart';
+import 'package:whatsapp_clone/view/home_page.dart';
 import 'package:whatsapp_clone/view_model/login_bloc/login_bloc.dart';
 
 class AuthRepository {
@@ -15,28 +17,42 @@ class AuthRepository {
 
     try {
       if (email.isEmpty) {
-        print('EMAIL IS EMPTY');
+        toastInfo(msg: 'Email can\'t be empty');
       }
       if (password.isEmpty) {
-        print('PASSWORD IS EMPTY');
+        toastInfo(msg: 'password can\'t be empty');
       }
-
       try {
-        final UserCredential = await _auth.signInWithEmailAndPassword(
+        final userCredential = await _auth.signInWithEmailAndPassword(
           email: email,
           password: password,
         );
-        if (UserCredential.user == null) {
-          print('USER NOT EXIST');
-        }
-        if (UserCredential.user != null) {
-          print('GOOD PATH');
+        if (userCredential.user != null) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ),
+            (Route<dynamic> route) => false,
+          );
         }
       } on FirebaseAuthException catch (e) {
-        print(e.code);
+        if (e.code == 'invalid-email') {
+          toastInfo(msg: 'Email invalidt');
+        } else if (e.code == 'user-disabled') {
+          toastInfo(msg: 'User disabled');
+        } else if (e.code == 'user-not-found') {
+          toastInfo(msg: 'User not found');
+        } else if (e.code == 'wrong-password') {
+          toastInfo(msg: 'Password is wrong');
+        } else if (e.code == 'invalid-credential') {
+          toastInfo(msg: 'Credential invalid');
+        }
       }
     } catch (e) {
       print(e);
     }
   }
 }
+
+// AlertDialog(title: Text('We sent e email verification, please take a look'),);
+          //toastInfo(msg: 'We sent e email verification, please take a look');

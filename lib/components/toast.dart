@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 toastInfo({
@@ -11,8 +10,8 @@ toastInfo({
     msg: msg,
     backgroundColor: backGroundColor,
     textColor: textColor,
-    gravity: ToastGravity.CENTER,
+    gravity: ToastGravity.TOP,
     toastLength: Toast.LENGTH_SHORT,
-    fontSize: 16.sp,
+    fontSize: 16,
   );
 }
